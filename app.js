@@ -3,11 +3,15 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
+      // name property with every key stroke.
       name: "",
+      confirmedName: "",
     };
   },
   methods: {
-    // submitForm(event) {
+    confirmedInput() {
+      this.confirmedName = this.name;
+    },
     submitForm() {
       alert("submitted");
       //   event.preventDefault();

@@ -20,14 +20,19 @@
       <h2>Events in Action</h2>
       <!-- explicitly calling method -->
       <button v-on:click="increment(10)">Add by 10</button>
-      <button v-on:click=" decrement(5)">Remove by 5</button>
+      <button v-on:click.right=" decrement(5)">Remove by 5</button>
       <p>Result: {{ counter }}</p>
       <!--  -->
       <!-- <input type="text" v-on:input="setName" /> -->
       <!-- Here explicitly entering last name -->
       <!-- $event is a reserved name -->
-      <input type="text" v-on:input="setName($event, 'Varghese')" />
-      <p>Your Name: {{name}}</p>
+      <input
+        type="text"
+        v-on:input="setName($event, 'Varghese')"
+        v-on:keyup.enter="confirmedInput"
+      />
+      <!-- update name only when user press enter on this input element. -->
+      <p>Your Name: {{ confirmedName }}</p>
       <!-- <form v-on:submit="submitForm"> -->
       <form v-on:submit.prevent="submitForm">
         <input type="text" />
